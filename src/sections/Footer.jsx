@@ -1,5 +1,5 @@
 import { footerLogo } from "../assets/images";
-import { socialMedia } from "../constants";
+import { footerLinks, socialMedia } from "../constants";
 
 const Footer = () => {
   return (
@@ -19,7 +19,6 @@ const Footer = () => {
             Get shoes ready for the new term at your nearest Nike store. Find
             Your perfect Size In Store. Get Rewards
           </p>
-          
           <div className="flex items-center gap-5 mt-8">
             {socialMedia.map((icon) => (
               <div
@@ -30,7 +29,26 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          
+        </div>
+
+        <div className="flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap">
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="font-montserrat text-2xl leading-normal font-medium mb-6 text-white">
+                {section.title}
+              </h4>
+              <ul>
+                {section.links.map((link) => (
+                  <li
+                    className="mt-3 font-montserrat text-base leading-normal text-white-400 hover:text-slate-gray"
+                    key={link.name}
+                  >
+                    <a href={link.link}>{link.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
